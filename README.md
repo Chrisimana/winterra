@@ -10,7 +10,7 @@
 ![Status](https://img.shields.io/badge/status-active-brightgreen?style=flat)
 ![License](https://img.shields.io/badge/license-All_Rights_Reserved-red?style=flat)
 
-**Interactive Holiday Experience — Rayakan Liburan Akhir Tahun dalam Pengalaman 3D Interaktif**
+**Interactive Holiday Experience. Rayakan Liburan Akhir Tahun dalam Pengalaman 3D Interaktif**
 
 </div>
 
