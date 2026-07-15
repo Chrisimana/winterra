@@ -1,0 +1,27 @@
+[
+  {
+    "kategori": "Pakaian",
+    "icon": "👕",
+    "items": ["Jaket tebal", "Kaos/kemeja secukupnya", "Celana panjang", "Pakaian dalam", "Sweater/hoodie", "Kaos kaki tebal", "Sarung tangan & topi kupluk"]
+  },
+  {
+    "kategori": "Elektronik",
+    "icon": "🔌",
+    "items": ["Power bank", "Charger HP", "Kamera", "Headphone", "Adaptor colokan", "Kabel data"]
+  },
+  {
+    "kategori": "Dokumen",
+    "icon": "📄",
+    "items": ["KTP/Paspor", "Tiket perjalanan", "Bukti reservasi hotel", "Kartu asuransi perjalanan", "Uang tunai & kartu debit"]
+  },
+  {
+    "kategori": "Obat-obatan",
+    "icon": "💊",
+    "items": ["Obat pribadi", "Plester luka", "Minyak angin", "Obat anti mabuk perjalanan", "Vitamin"]
+  },
+  {
+    "kategori": "Perlengkapan",
+    "icon": "🎒",
+    "items": ["Tas ransel/koper", "Botol minum", "Sunscreen", "Perlengkapan mandi", "Payung/jas hujan", "Sandal/sepatu cadangan"]
+  }
+]
