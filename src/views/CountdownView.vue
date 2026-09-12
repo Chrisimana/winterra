@@ -1,5 +1,6 @@
 <script setup>
 import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { PartyPopper } from '@lucide/vue'
 import { useFireworks } from '@/composables/useFireworks'
 
 const canvasRef = ref(null)
@@ -55,7 +56,9 @@ onUnmounted(() => clearInterval(intervalId))
         </div>
       </div>
 
-      <p v-else class="mt-6 text-2xl text-accent">🎆 Selamat datang tahun {{ target.getFullYear() }}! 🎆</p>
+      <p v-else class="mt-6 flex items-center gap-3 text-2xl text-accent">
+        <PartyPopper :size="28" /> Selamat datang tahun {{ target.getFullYear() }}! <PartyPopper :size="28" />
+      </p>
 
       <p class="mt-10 max-w-md text-sm text-white/50">
         Rayakan pergantian tahun bersama kembang api virtual WinterRa sambil merencanakan liburan berikutnya.

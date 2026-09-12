@@ -2,6 +2,7 @@
 import { onMounted } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { PartyPopper, Zap, Compass, Sparkles } from '@lucide/vue'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -13,10 +14,10 @@ const timeline = [
 ]
 
 const keunggulan = [
-  { icon: '🎆', title: 'Efek 3D Interaktif', desc: 'Rasakan animasi kembang api 3D di halaman Countdown menyambut tahun baru.' },
-  { icon: '⚡', title: 'Frontend Only', desc: 'Seluruh fitur berjalan tanpa backend maupun API, menggunakan data JSON lokal.' },
-  { icon: '🧭', title: 'Perencanaan Liburan', desc: 'Budget calculator dan packing checklist dalam satu tempat.' },
-  { icon: '✨', title: 'Animasi Halus', desc: 'Didukung GSAP dan Lenis untuk transisi dan scroll yang mulus.' },
+  { icon: PartyPopper, title: 'Efek 3D Interaktif', desc: 'Rasakan animasi kembang api 3D di halaman Countdown menyambut tahun baru.' },
+  { icon: Zap, title: 'Frontend Only', desc: 'Seluruh fitur berjalan tanpa backend maupun API, menggunakan data JSON lokal.' },
+  { icon: Compass, title: 'Perencanaan Liburan', desc: 'Budget calculator dan packing checklist dalam satu tempat.' },
+  { icon: Sparkles, title: 'Animasi Halus', desc: 'Didukung GSAP dan Lenis untuk transisi dan scroll yang mulus.' },
 ]
 
 onMounted(() => {
@@ -82,7 +83,7 @@ onMounted(() => {
       <h2 class="mb-12 text-center text-3xl font-bold">Mengapa WinterRa?</h2>
       <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <div v-for="a in keunggulan" :key="a.title" class="advantage-card glass rounded-2xl p-6 text-center">
-          <div class="mb-3 text-4xl">{{ a.icon }}</div>
+          <component :is="a.icon" :size="32" class="mx-auto mb-3 text-accent" />
           <h3 class="font-bold text-white">{{ a.title }}</h3>
           <p class="mt-2 text-sm text-white/60">{{ a.desc }}</p>
         </div>

@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
+import { Menu, X } from '@lucide/vue'
 import logoUrl from '@/assets/logo WinterRa.png'
 
 const open = ref(false)
@@ -40,8 +41,8 @@ const links = [
           aria-label="Toggle menu"
           @click="open = !open"
         >
-          <span v-if="!open">☰</span>
-          <span v-else>✕</span>
+          <Menu v-if="!open" :size="20" />
+          <X v-else :size="20" />
         </button>
       </div>
     </nav>

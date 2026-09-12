@@ -1,13 +1,14 @@
 <script setup>
 import { computed, ref } from 'vue'
+import { Bus, Hotel, UtensilsCrossed, Ticket, Gift } from '@lucide/vue'
 
 const budgetLimit = ref(5000000)
 const components = ref([
-  { key: 'transportasi', label: 'Transportasi', icon: '🚌', value: 800000 },
-  { key: 'hotel', label: 'Hotel', icon: '🏨', value: 1200000 },
-  { key: 'makan', label: 'Makan', icon: '🍽️', value: 600000 },
-  { key: 'tiket', label: 'Tiket Wisata', icon: '🎫', value: 300000 },
-  { key: 'olehOleh', label: 'Oleh-oleh', icon: '🎁', value: 400000 },
+  { key: 'transportasi', label: 'Transportasi', icon: Bus, value: 800000 },
+  { key: 'hotel', label: 'Hotel', icon: Hotel, value: 1200000 },
+  { key: 'makan', label: 'Makan', icon: UtensilsCrossed, value: 600000 },
+  { key: 'tiket', label: 'Tiket Wisata', icon: Ticket, value: 300000 },
+  { key: 'olehOleh', label: 'Oleh-oleh', icon: Gift, value: 400000 },
 ])
 
 const total = computed(() => components.value.reduce((sum, c) => sum + (Number(c.value) || 0), 0))
@@ -46,7 +47,7 @@ function formatRupiah(value) {
 
       <div class="mt-8 space-y-4">
         <div v-for="c in components" :key="c.key" class="flex items-center gap-4">
-          <span class="w-8 text-xl">{{ c.icon }}</span>
+          <component :is="c.icon" :size="20" class="w-8 shrink-0 text-accent" />
           <span class="w-32 shrink-0 text-sm text-white/70">{{ c.label }}</span>
           <input
             v-model.number="c.value"

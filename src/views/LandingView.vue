@@ -2,6 +2,7 @@
 import { computed, onMounted } from 'vue'
 import { RouterLink } from 'vue-router'
 import gsap from 'gsap'
+import { Wallet, Backpack, PartyPopper, Zap, Snowflake, Save } from '@lucide/vue'
 import { useJsonData } from '@/composables/useJsonData'
 
 const { data: quotes, loading: loadingQuotes } = useJsonData('quotes.json')
@@ -23,15 +24,15 @@ onMounted(() => {
 })
 
 const features = [
-  { icon: '💰', title: 'Budget Calculator', desc: 'Hitung estimasi biaya transportasi, hotel, makan, hingga oleh-oleh.', to: '/budget' },
-  { icon: '🎒', title: 'Packing Checklist', desc: 'Checklist perlengkapan yang tersimpan otomatis di perangkatmu.', to: '/packing' },
-  { icon: '🎆', title: 'Countdown', desc: 'Hitung mundur pergantian tahun baru bersama kembang api virtual.', to: '/countdown' },
+  { icon: Wallet, title: 'Budget Calculator', desc: 'Hitung estimasi biaya transportasi, hotel, makan, hingga oleh-oleh.', to: '/budget' },
+  { icon: Backpack, title: 'Packing Checklist', desc: 'Checklist perlengkapan yang tersimpan otomatis di perangkatmu.', to: '/packing' },
+  { icon: PartyPopper, title: 'Countdown', desc: 'Hitung mundur pergantian tahun baru bersama kembang api virtual.', to: '/countdown' },
 ]
 
 const highlights = [
-  { icon: '⚡', title: 'Tanpa Backend', desc: 'Semua fitur berjalan 100% di browser, tanpa server maupun API.' },
-  { icon: '❄️', title: 'Desain Winter Modern', desc: 'Tampilan musim dingin dengan animasi halus di setiap halaman.' },
-  { icon: '💾', title: 'Tersimpan di Perangkatmu', desc: 'Progress checklist tersimpan otomatis lewat local storage.' },
+  { icon: Zap, title: 'Tanpa Backend', desc: 'Semua fitur berjalan 100% di browser, tanpa server maupun API.' },
+  { icon: Snowflake, title: 'Desain Winter Modern', desc: 'Tampilan musim dingin dengan animasi halus di setiap halaman.' },
+  { icon: Save, title: 'Tersimpan di Perangkatmu', desc: 'Progress checklist tersimpan otomatis lewat local storage.' },
 ]
 </script>
 
@@ -88,7 +89,7 @@ const highlights = [
           :to="f.to"
           class="glass group rounded-2xl p-6 text-left transition hover:-translate-y-1.5 hover:bg-white/10"
         >
-          <div class="mb-3 text-3xl transition group-hover:scale-110">{{ f.icon }}</div>
+          <component :is="f.icon" :size="28" class="mb-3 text-accent transition group-hover:scale-110" />
           <h3 class="font-bold text-white">{{ f.title }}</h3>
           <p class="mt-2 text-sm text-white/60">{{ f.desc }}</p>
         </RouterLink>
@@ -103,7 +104,7 @@ const highlights = [
 
       <div class="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-3">
         <div v-for="h in highlights" :key="h.title" class="glass rounded-2xl p-6 text-left">
-          <div class="mb-3 text-3xl">{{ h.icon }}</div>
+          <component :is="h.icon" :size="28" class="mb-3 text-accent" />
           <h3 class="font-bold text-white">{{ h.title }}</h3>
           <p class="mt-2 text-sm text-white/60">{{ h.desc }}</p>
         </div>

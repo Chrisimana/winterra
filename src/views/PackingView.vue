@@ -1,7 +1,16 @@
 <script setup>
 import { computed } from 'vue'
+import { Shirt, Plug, FileText, Pill, Backpack } from '@lucide/vue'
 import { useJsonData } from '@/composables/useJsonData'
 import { usePackingStore } from '@/stores/packing'
+
+const iconMap = {
+  shirt: Shirt,
+  plug: Plug,
+  'file-text': FileText,
+  pill: Pill,
+  backpack: Backpack,
+}
 
 const { data: packingList, loading } = useJsonData('packing.json')
 const packingStore = usePackingStore()
@@ -51,7 +60,7 @@ const progress = computed(() => (totalItems.value ? Math.round((checkedCount.val
       <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
         <div v-for="cat in packingList" :key="cat.kategori" class="glass rounded-2xl p-6">
           <h2 class="flex items-center gap-2 text-lg font-bold text-white">
-            <span>{{ cat.icon }}</span> {{ cat.kategori }}
+            <component :is="iconMap[cat.icon]" :size="20" class="text-accent" /> {{ cat.kategori }}
           </h2>
           <ul class="mt-4 space-y-2">
             <li v-for="item in cat.items" :key="item">
